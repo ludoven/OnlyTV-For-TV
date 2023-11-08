@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.OnlyTV" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <!-- progressbar 颜色-->
+        <item name="colorAccent">@color/white</item>
+        <!--无标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--无ActionBar-->
+        <item name="android:windowActionBar">false</item>
+        <!--全屏即无通知栏-->
+        <item name="android:windowFullscreen">true</item>
+        <!--是否有遮盖-->
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="textAllCaps">false</item>
+
+        <!-- 关闭 TextView 自带的文字间距 -->
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Theme.OnlyTV" parent="Base.Theme.OnlyTV" />
+
+
+    <style name="RoundImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

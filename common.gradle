@@ -1,0 +1,79 @@
+apply plugin: 'kotlin-android'
+
+ext{
+    buildCode = 1
+}
+
+// 通用配置
+android {
+
+    // 编译源码版本
+    compileSdkVersion 34
+    defaultConfig {
+        // 最低安装版本
+        minSdkVersion 21
+        // 目标适配版本
+        targetSdkVersion 33
+        versionName '1.0.0'
+        versionCode 10
+    }
+
+    // 支持 Java JDK 8
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    // 设置存放 so 文件的目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    // 可在 Studio 最左侧中的 Build Variants 选项中切换默认的构建类型
+    buildTypes {
+        // 调试版本
+        debug {}
+        // 预览版本
+        preview {}
+        // 正式版本
+        release {}
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 代码警告配置
+    lintOptions {
+        // 禁用文本硬编码警告
+        disable 'HardcodedText'
+        // 禁用图片描述警告
+        disable 'ContentDescription'
+    }
+
+    dependencies {
+        // 依赖 libs 目录下所有的 jar 和 aar 包
+        implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+
+        // AndroidX 库：https://github.com/androidx/androidx
+        implementation 'androidx.appcompat:appcompat:1.6.1'
+        // Material 库：https://github.com/material-components/material-components-android
+        implementation 'com.google.android.material:material:1.10.0'
+//
+//        // Kotlin 协程：https://github.com/Kotlin/kotlinx.coroutines
+//        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+//        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+//        implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+//        implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    }
+}

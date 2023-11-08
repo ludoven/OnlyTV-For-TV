@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_focused="true">
+
+        <shape>
+            <solid android:color="@color/bt_color"/>
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+
+    <item android:state_selected="true">
+
+        <shape>
+            <solid android:color="@color/bt_color_select"/>
+            <corners android:radius="5dp"/>
+        </shape>
+    </item>
+
+
+    <item android:drawable="@color/transparent"/>
+
+</selector>

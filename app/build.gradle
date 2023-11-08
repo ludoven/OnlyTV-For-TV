@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.android'
+}
+apply plugin: 'kotlin-kapt'
+apply from : '../common.gradle'
+
+android {
+    namespace 'com.quiet.onlytv'
+
+    defaultConfig {
+        applicationId 'com.quiet.onlytv'
+        multiDexEnabled true
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+
+    packagingOptions {
+        // 剔除这个包下的所有文件（不会移除签名信息）
+        exclude 'META-INF/*******'
+    }
+
+
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.9.0'
+    api 'androidx.appcompat:appcompat:1.6.1'
+    api 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.lifecycle:lifecycle-process:2.4.1'
+
+    implementation project(path: ':base')
+
+
+    //分包
+    implementation 'androidx.multidex:multidex:2.0.1'
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+
+}

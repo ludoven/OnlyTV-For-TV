@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_background">#1A1C1E</color>
+
+    <color name="text_color">#E3E2E6</color>
+    <color name="bt_color">#C7C6CA</color>
+    <color name="bt_color_select">#663E4758</color>
+    <color name="text_color_select">#3E4758</color>
+</resources>
