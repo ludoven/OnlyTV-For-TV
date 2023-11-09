@@ -9,7 +9,7 @@
         <!-- Customize your theme here. -->
 
         <item name="android:navigationBarColor">@color/transparent</item>
-        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:windowBackground">@color/background</item>
         <!-- progressbar 颜色-->
         <item name="colorAccent">@color/white</item>
         <!--无标题-->

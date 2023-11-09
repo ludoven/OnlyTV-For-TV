@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="427dp"
+    android:id="@+id/root_view"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    app:cardCornerRadius="5dp"
+    app:strokeColor="@color/white20"
+    app:strokeWidth="1dp">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/icon_banner" />
+
+    <View
+        android:background="@drawable/shape_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="43dp"
+        android:layout_marginBottom="85dp"
+        android:shadowColor="#40000000"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:shadowRadius="3.0"
+        android:textColor="#ffc7c6ca"
+        android:textSize="60sp"
+        tools:text="Shadow Hunter" />
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="43dp"
+        android:layout_marginBottom="43dp"
+        android:textColor="@color/on_surface_variant"
+        android:textSize="21sp"
+        tools:text="A relentless detective unravels a web of secrets" />
+
+</com.google.android.material.card.MaterialCardView>

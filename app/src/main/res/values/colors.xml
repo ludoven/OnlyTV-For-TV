@@ -2,10 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="app_background">#1A1C1E</color>
 
-    <color name="text_color">#E3E2E6</color>
-    <color name="bt_color">#C7C6CA</color>
+
+
     <color name="bt_color_select">#663E4758</color>
-    <color name="text_color_select">#3E4758</color>
+    <color name="secondary_container">#3E4758</color>
+
+
+    <color name="background">#1A1C1E</color>
+    <color name="on_background">#E3E2E6</color>
+    <color name="surface">#121316</color>
+    <color name="on_surface">#C7C6CA</color>
+    <color name="on_surface_variant">#C4C6CF</color>
 </resources>

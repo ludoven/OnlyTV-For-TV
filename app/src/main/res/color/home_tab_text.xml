@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:color="@color/app_background" android:state_focused="true"/>
-    <item android:color="@color/text_color_select" android:state_selected="true"/>
-    <item android:color="@color/text_color"/>
+    <item android:color="@color/background" android:state_focused="true"/>
+    <item android:color="@color/secondary_container" android:state_selected="true"/>
+    <item android:color="@color/on_background"/>
 </selector>
