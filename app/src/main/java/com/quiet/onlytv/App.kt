@@ -9,6 +9,7 @@ import androidx.multidex.MultiDex
 import com.bumptech.glide.Glide
 import com.bumptech.glide.util.Util
 import com.ludoven.base.utils.ActivityManager
+import timber.log.Timber
 
 
 class App : Application(), DefaultLifecycleObserver {
@@ -28,6 +29,10 @@ class App : Application(), DefaultLifecycleObserver {
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
 
         ActivityManager.getInstance().init(this)
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
     override fun onStop(owner: LifecycleOwner) {

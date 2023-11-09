@@ -23,14 +23,8 @@ class BannerAdapter(mutableList: MutableList<String>, private val listener: OnIt
         holder.setText(R.id.title,"Shadow Hunter - ${holder.bindingAdapterPosition}")
         holder.setText(R.id.des,"A relentless detective unravels a web of secrets - ${holder.bindingAdapterPosition}")
 
-        val cardView = holder.getView<MaterialCardView>(R.id.root_view)
         holder.itemView.setOnFocusChangeListener { view, b ->
             listener.onItemSelected(this,view,holder.bindingAdapterPosition,b)
-            if (b){
-                cardView.strokeColor = ContextCompat.getColor(context,R.color.white)
-            }else{
-                cardView.strokeColor = ContextCompat.getColor(context, com.ludoven.base.R.color.white20)
-            }
         }
 
         holder.itemView.setOnKeyListener { view, i, keyEvent ->

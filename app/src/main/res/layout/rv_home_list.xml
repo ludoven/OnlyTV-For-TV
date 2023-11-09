@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingStart="77dp"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:layout_marginBottom="53dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trending"
+        android:textColor="@color/white"
+        android:textSize="37sp"
+        />
+
+    <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+        android:id="@+id/horizontal_rv"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:listitem="@layout/rv_home_horizontal"
+        tools:itemCount="10"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

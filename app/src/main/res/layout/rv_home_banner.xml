@@ -7,8 +7,9 @@
     android:id="@+id/root_view"
     android:focusableInTouchMode="true"
     android:focusable="true"
+    app:cardBackgroundColor="@color/transparent"
+    app:strokeColor="@color/banner_stork"
     app:cardCornerRadius="5dp"
-    app:strokeColor="@color/white20"
     app:strokeWidth="1dp">
 
     <ImageView
