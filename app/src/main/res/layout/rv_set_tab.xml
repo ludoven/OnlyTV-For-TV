@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="24dp"
+    android:focusable="true"
+    android:layout_marginBottom="5dp"
+    android:focusableInTouchMode="true"
+    android:gravity="center_vertical"
+    android:background="@drawable/selector_set_tab_bg"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:src="@drawable/ic_hook_white"
+        android:duplicateParentState="true"
+        android:layout_width="22dp"
+        android:layout_height="22dp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_marginStart="22dp"
+        android:layout_height="wrap_content"
+        tools:text="About"
+        android:duplicateParentState="true"
+        android:textColor="@color/home_tab_text"
+        android:textSize="19sp"
+        />
+
+</LinearLayout>

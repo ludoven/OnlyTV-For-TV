@@ -1,14 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="77dp"
+    android:paddingTop="141dp"
     tools:context=".ui.set.SetFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/tab_rv"
+        android:layout_width="357dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:listitem="@layout/rv_set_tab" >
+
+
+        <LinearLayout
+            android:id="@+id/set_about"
+            android:paddingHorizontal="24dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_set_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:src="@drawable/selector_set_about"
+                android:duplicateParentState="true"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:duplicateParentState="true"
+                android:textColor="@color/home_tab_text"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/set_sub"
+            android:paddingHorizontal="24dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_set_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:src="@drawable/selector_set_sub"
+                android:duplicateParentState="true"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_height="wrap_content"
+                android:text="Subtitles"
+                android:duplicateParentState="true"
+                android:textColor="@color/home_tab_text"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/set_lan"
+            android:paddingHorizontal="24dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_set_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:src="@drawable/selector_set_lan"
+                android:duplicateParentState="true"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_height="wrap_content"
+                android:text="Preferred Language"
+                android:duplicateParentState="true"
+                android:textColor="@color/home_tab_text"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/set_history"
+            android:paddingHorizontal="24dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_set_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:src="@drawable/selector_search"
+                android:duplicateParentState="true"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_height="wrap_content"
+                android:text="Search history"
+                android:duplicateParentState="true"
+                android:textColor="@color/home_tab_text"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/set_help"
+            android:paddingHorizontal="24dp"
+            android:focusable="true"
+            android:layout_marginBottom="5dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_set_tab_bg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <ImageView
+                android:src="@drawable/selector_set_help"
+                android:duplicateParentState="true"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginStart="22dp"
+                android:layout_height="wrap_content"
+                android:text="Help and Support"
+                android:duplicateParentState="true"
+                android:textColor="@color/home_tab_text"
+                android:textSize="19sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginStart="96dp" />
 
-</FrameLayout>
+</LinearLayout>
