@@ -7,3 +7,5 @@ Android TV 版影视APP，包含直播、短视频、电影、电视剧等各大
 
 
 ![Screenshot_20231109_165015](https://github.com/ludoven/OnlyTV-For-TV/assets/34389786/890a666b-a015-4953-9948-9bbefeaac43d)
+
+![Screenshot_20231110_132410](https://github.com/ludoven/OnlyTV-For-TV/assets/34389786/0580722c-cafe-4970-9e62-47a84fd16a50)
