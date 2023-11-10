@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.category.CategoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.quiet.onlytv.widget.rv.VerticalRecyclerView
+        android:id="@+id/category_rv"
+        android:layout_marginHorizontal="77dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/rv_category"
+        app:spanCount="4"
+        android:layout_marginTop="139dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

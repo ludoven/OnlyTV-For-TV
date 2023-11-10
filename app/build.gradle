@@ -66,4 +66,8 @@ dependencies {
     // 指示器框架：https://github.com/ongakuer/CircleIndicator
     implementation 'me.relex:circleindicator:2.1.6'
 
+
+    //Glide 高斯模糊  https://github.com/wasabeef/glide-transformations
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
 }

@@ -144,11 +144,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
     }
 
 
-     fun requestFocusTab(){
-         if (!binding.topLayout.isVisible){
-             startShowAnimation()
-             return
-         }
+    fun requestFocusTab() {
+        if (!binding.topLayout.isVisible) {
+            startShowAnimation()
+            return
+        }
+        Timber.d("$mLastFocusView")
         mLastFocusView?.requestFocus()
     }
 
@@ -170,24 +171,24 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
     }
 
     private fun startHideAnimation() {
-        if (!binding.topLayout.isVisible){
+        if (!binding.topLayout.isVisible) {
             return
         }
-        binding.topLayout.animateWithCallback(this,Constant.Anim.TOP_EXIT,300,{
+        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_EXIT, 300, {
 
-        },{
+        }, {
             binding.topLayout.visibility = View.GONE
         })
     }
 
     private fun startShowAnimation() {
-        Timber.d("startShowAnimation: isVisible:${binding.topLayout.isVisible}" )
-        if (binding.topLayout.isVisible){
+        Timber.d("startShowAnimation: isVisible:${binding.topLayout.isVisible}")
+        if (binding.topLayout.isVisible) {
             return
         }
-        binding.topLayout.animateWithCallback(this,Constant.Anim.TOP_ENTER,300,{
+        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_ENTER, 300, {
             binding.topLayout.visibility = View.VISIBLE
-        },{
+        }, {
 
         })
     }
