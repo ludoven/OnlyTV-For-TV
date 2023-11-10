@@ -32,6 +32,7 @@ import com.quiet.onlytv.utils.AnimationUtil
 import com.quiet.onlytv.utils.AnimationUtil.animateWithCallback
 import com.quiet.onlytv.utils.MyAnimationListener
 import com.quiet.onlytv.utils.OnItemSelectedListener
+import com.quiet.onlytv.utils.requestFocused
 import timber.log.Timber
 
 class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnItemSelectedListener {
@@ -71,11 +72,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
 
 
     private fun initTab() {
-        homeTabAdapter = HomeTabAdapter(titleList, this)
+        homeTabAdapter = HomeTabAdapter(titleList).apply {
+            setSelectedListener(this@MainActivity)
+        }
         binding.homeTab.apply {
             adapter = homeTabAdapter
             post {
-                if (childCount > 0) getChildAt(0).requestFocus()
+                if (childCount > 0) getChildAt(0).requestFocused()
             }
         }
     }
@@ -150,7 +153,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
             return
         }
         Timber.d("$mLastFocusView")
-        mLastFocusView?.requestFocus()
+        mLastFocusView?.requestFocused()
     }
 
     fun hideTopBar(hide: Boolean, animation: Boolean = false) {

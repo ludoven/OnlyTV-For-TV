@@ -28,7 +28,10 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
     }
 
     private fun initAdapter() {
-        bannerAdapter = BannerAdapter(mutableListOf("", "", "", "", ""), this,this)
+        bannerAdapter = BannerAdapter(mutableListOf("", "", "", "", "")).apply {
+            setKeyListener(this@HomeFragment)
+            setSelectedListener(this@HomeFragment)
+        }
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView( binding.bannerRv)
         binding.bannerRv.adapter = bannerAdapter
@@ -51,17 +54,7 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
     }
 
     private fun initListAdapter(){
-        homeListAdapter = HomeListAdapter(mutableListOf("","",""),object :OnItemSelectedListener{
-            override fun onItemSelected(
-                adapter: BaseQuickAdapter<*, *>?,
-                v: View?,
-                pos: Int,
-                hasFocus: Boolean
-            ) {
-
-            }
-
-        })
+        homeListAdapter = HomeListAdapter(mutableListOf("","",""))
         binding.listRv.adapter = homeListAdapter
 
     }

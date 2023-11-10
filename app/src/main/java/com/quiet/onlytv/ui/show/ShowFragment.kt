@@ -46,7 +46,9 @@ class ShowFragment : BaseFragment<MainActivity, FragmentShowBinding, DefaultPres
             "Earth",
             "Super Puppy"
         )
-        recommendAdapter = RecommendAdapter(mutableListOf,this)
+        recommendAdapter = RecommendAdapter(mutableListOf).apply {
+            setKeyListener(this@ShowFragment)
+        }
         binding.recommendRv.adapter = recommendAdapter
         binding.recommendRv.setOnFocusListener(object : BaseRecyclerView.OnListener{
             override fun onFocusGain(child: View?, focued: View?) {
@@ -59,17 +61,7 @@ class ShowFragment : BaseFragment<MainActivity, FragmentShowBinding, DefaultPres
         })
     }
     private fun initListAdapter(){
-        homeListAdapter = HomeListAdapter(mutableListOf("","",""),object : OnItemSelectedListener {
-            override fun onItemSelected(
-                adapter: BaseQuickAdapter<*, *>?,
-                v: View?,
-                pos: Int,
-                hasFocus: Boolean
-            ) {
-
-            }
-
-        })
+        homeListAdapter = HomeListAdapter(mutableListOf("","",""))
         binding.showRv.adapter = homeListAdapter
     }
 

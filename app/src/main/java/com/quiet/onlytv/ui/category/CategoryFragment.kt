@@ -32,7 +32,9 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
             "Ethics",
             "Music"
         )
-        categoryAdapter = CategoryAdapter(mutableListOf, this)
+        categoryAdapter = CategoryAdapter(mutableListOf).apply {
+            setKeyListener(this@CategoryFragment)
+        }
         binding.categoryRv.adapter = categoryAdapter
         binding.categoryRv.canFocusOutHorizontal(false)
     }

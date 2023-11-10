@@ -15,20 +15,12 @@ import com.quiet.onlytv.utils.OnKeyListener
  *  date :   2023/11/8 17:32
  *
  */
-class BannerAdapter(mutableList: MutableList<String>, private val listener: OnItemSelectedListener,private val keyListener: OnKeyListener): BaseQuickAdapter<String, BaseViewHolder>(
+class BannerAdapter(mutableList: MutableList<String>): BaseAdapter<String>(
     R.layout.rv_home_banner,mutableList
 ) {
-
     override fun convert(holder: BaseViewHolder, item: String) {
+        super.convert(holder, item)
         holder.setText(R.id.title,"Shadow Hunter - ${holder.bindingAdapterPosition}")
         holder.setText(R.id.des,"A relentless detective unravels a web of secrets - ${holder.bindingAdapterPosition}")
-
-        holder.itemView.setOnFocusChangeListener { view, b ->
-            listener.onItemSelected(this,view,holder.bindingAdapterPosition,b)
-        }
-
-        holder.itemView.setOnKeyListener { view, i, keyEvent ->
-            return@setOnKeyListener keyListener.onKeyDown(holder.bindingAdapterPosition,i,keyEvent)
-        }
     }
 }

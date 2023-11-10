@@ -43,7 +43,9 @@ class MovieFragment : BaseFragment<MainActivity,FragmentMovieBinding,DefaultPres
             "Power Sisters",
             "Super Puppy"
         )
-        recommendAdapter = RecommendAdapter(mutableListOf,this)
+        recommendAdapter = RecommendAdapter(mutableListOf).apply {
+            setKeyListener(this@MovieFragment)
+        }
         binding.recommendRv.adapter = recommendAdapter
         binding.recommendRv.setOnFocusListener(object : BaseRecyclerView.OnListener{
             override fun onFocusGain(child: View?, focued: View?) {
@@ -56,17 +58,7 @@ class MovieFragment : BaseFragment<MainActivity,FragmentMovieBinding,DefaultPres
         })
     }
     private fun initListAdapter(){
-        homeListAdapter = HomeListAdapter(mutableListOf("","",""),object : OnItemSelectedListener {
-            override fun onItemSelected(
-                adapter: BaseQuickAdapter<*, *>?,
-                v: View?,
-                pos: Int,
-                hasFocus: Boolean
-            ) {
-
-            }
-
-        })
+        homeListAdapter = HomeListAdapter(mutableListOf("","",""))
         binding.movieRv.adapter = homeListAdapter
     }
 

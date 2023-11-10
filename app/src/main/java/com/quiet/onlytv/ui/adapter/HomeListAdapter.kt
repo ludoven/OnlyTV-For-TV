@@ -18,28 +18,14 @@ import com.quiet.onlytv.widget.rv.HorizontalRecyclerView
  *  date :   2023/11/8 17:32
  *
  */
-class HomeListAdapter(mutableList: MutableList<String>, private val listener: OnItemSelectedListener): BaseQuickAdapter<String, BaseViewHolder>(
+class HomeListAdapter(mutableList: MutableList<String>): BaseAdapter<String>(
     R.layout.rv_home_list,mutableList
 ) {
 
     override fun convert(holder: BaseViewHolder, item: String) {
         val horizontalRv = holder.getView<HorizontalRecyclerView>(R.id.horizontal_rv)
-        val adapter = HomeHorizontalAdapter(mutableListOf("","","","","","","","",""),object :OnItemSelectedListener{
-            override fun onItemSelected(
-                adapter: BaseQuickAdapter<*, *>?,
-                v: View?,
-                pos: Int,
-                hasFocus: Boolean
-            ) {
-
-            }
-        })
+        val adapter = HomeHorizontalAdapter(mutableListOf("","","","","","","","",""))
         horizontalRv.adapter = adapter
         horizontalRv.canFocusOutHorizontal(false)
-
-        holder.itemView.setOnFocusChangeListener { view, b ->
-            listener.onItemSelected(this,view,holder.bindingAdapterPosition,b)
-        }
-
     }
 }

@@ -20,7 +20,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation
  *  date :   2023/11/8 17:32
  *
  */
-class CategoryAdapter(mutableList: MutableList<String>,private val onKeyListener: OnKeyListener) : BaseQuickAdapter<String, BaseViewHolder>(
+class CategoryAdapter(mutableList: MutableList<String>) : BaseAdapter<String>(
     R.layout.rv_category, mutableList
 ) {
     private val requestOptions: RequestOptions by lazy {
@@ -51,7 +51,7 @@ class CategoryAdapter(mutableList: MutableList<String>,private val onKeyListener
         }
 
         holder.itemView.setOnKeyListener { view, i, keyEvent ->
-            return@setOnKeyListener onKeyListener.onKeyDown(holder.bindingAdapterPosition,i,keyEvent)
+            return@setOnKeyListener mKeyListener?.onKeyDown(holder.bindingAdapterPosition,i,keyEvent)?:false
         }
     }
 

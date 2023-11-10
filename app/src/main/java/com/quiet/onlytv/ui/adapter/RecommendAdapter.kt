@@ -11,15 +11,13 @@ import com.quiet.onlytv.utils.OnKeyListener
  *  date :   2023/11/10 13:55
  *
  */
-class RecommendAdapter(mutableList: MutableList<String>,private val onKeyListener: OnKeyListener) :
-    BaseQuickAdapter<String, BaseViewHolder>(R.layout.rv_recommend, mutableList) {
+class RecommendAdapter(mutableList: MutableList<String>) :
+    BaseAdapter<String>(R.layout.rv_recommend, mutableList) {
+
     override fun convert(holder: BaseViewHolder, item: String) {
+        super.convert(holder, item)
         holder.setText(R.id.title, item)
             .setText(R.id.des, "An adorable, super-powered puppy leaps into action")
-
-        holder.itemView.setOnKeyListener { view, i, keyEvent ->
-            return@setOnKeyListener onKeyListener.onKeyDown(holder.bindingAdapterPosition,i,keyEvent)
-        }
     }
 
 }

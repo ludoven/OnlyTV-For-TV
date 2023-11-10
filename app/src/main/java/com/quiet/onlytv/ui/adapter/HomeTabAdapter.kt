@@ -11,14 +11,12 @@ import com.quiet.onlytv.utils.OnItemSelectedListener
  *  date :   2023/11/8 17:32
  *
  */
-class HomeTabAdapter(mutableList: MutableList<String>,private val listener: OnItemSelectedListener): BaseQuickAdapter<String, BaseViewHolder>(
+class HomeTabAdapter(mutableList: MutableList<String>): BaseAdapter<String>(
     R.layout.rv_home_tab,mutableList
 ) {
 
     override fun convert(holder: BaseViewHolder, item: String) {
+        super.convert(holder, item)
         holder.setText(R.id.text,item)
-        holder.itemView.setOnFocusChangeListener { view, b ->
-            listener.onItemSelected(this,view,holder.bindingAdapterPosition,b)
-        }
     }
 }

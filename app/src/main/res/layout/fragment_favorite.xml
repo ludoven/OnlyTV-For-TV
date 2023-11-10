@@ -3,12 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.favorite.FavoriteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+        android:id="@+id/tab_rv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="77dp"
+        tools:itemCount="4"
+        tools:listitem="@layout/rv_favorite_tab"
+        android:layout_marginTop="139dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"/>
+
+    <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+        android:id="@+id/favorite_rv"
+        tools:itemCount="10"
+        tools:listitem="@layout/rv_favorite"
+        app:spanCount="5"
+        android:paddingHorizontal="77dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_marginTop="43dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

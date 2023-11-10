@@ -15,11 +15,11 @@ import com.quiet.onlytv.utils.OnKeyListener
 /**
  *
  *  author： ludoven
- *  date :   2023/11/8 17:32
+ *  date :   2023/11/10 16:32
  *
  */
-class HomeHorizontalAdapter(mutableList: MutableList<String>): BaseAdapter<String>(
-    R.layout.rv_home_horizontal,mutableList
+class FavoriteAdapter(mutableList: MutableList<String>): BaseAdapter<String>(
+    R.layout.rv_favorite,mutableList
 ) {
 
     override fun convert(holder: BaseViewHolder, item: String) {

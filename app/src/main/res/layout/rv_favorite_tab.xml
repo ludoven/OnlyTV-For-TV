@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:strokeWidth="1dp"
+    app:cardCornerRadius="5dp"
+    android:layout_marginEnd="16dp"
+    app:cardBackgroundColor="@color/favorite_tab_bg"
+    app:strokeColor="@color/white"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp">
+
+    <LinearLayout
+        android:duplicateParentState="true"
+        android:gravity="center"
+        android:paddingHorizontal="27dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:visibility="gone"
+            android:src="@drawable/selector_hook"
+            android:duplicateParentState="true"
+            android:layout_marginEnd="11dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:duplicateParentState="true"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="Available in 4K"
+            android:textColor="@color/favorite_tab_text"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

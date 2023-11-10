@@ -1,6 +1,6 @@
 # OnlyTV For TV
 
-Continuously updating
+Continuously updating....  持续开发中
 
 #### 介绍
 Android TV 版影视APP，包含直播、短视频、电影、电视剧等各大资源内容
