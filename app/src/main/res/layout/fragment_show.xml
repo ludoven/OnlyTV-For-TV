@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.show.ShowFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+            android:id="@+id/recommend_rv"
+            android:paddingStart="77dp"
+            tools:listitem="@layout/rv_recommend"
+            android:orientation="horizontal"
+            tools:itemCount="3"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_marginTop="139dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <com.quiet.onlytv.widget.rv.VerticalRecyclerView
+            android:id="@+id/show_rv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:listitem="@layout/rv_home_list"
+            tools:itemCount="3"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_marginTop="53dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

@@ -37,6 +37,9 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
         binding.bannerRv.setOnFocusListener(object :BaseRecyclerView.OnListener{
             override fun onFocusGain(child: View?, focued: View?) {
                 super.onFocusGain(child, focued)
+                binding.root.post {
+                    binding.root.smoothScrollTo(0,0)
+                }
                 getAttachActivity()?.hideTopBar(hide = false, animation = true)
             }
         })
