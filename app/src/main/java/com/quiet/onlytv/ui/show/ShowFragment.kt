@@ -16,6 +16,7 @@ import com.quiet.onlytv.ui.adapter.HomeListAdapter
 import com.quiet.onlytv.ui.adapter.RecommendAdapter
 import com.quiet.onlytv.utils.OnItemSelectedListener
 import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.utils.requestFocused
 import com.quiet.onlytv.widget.rv.BaseRecyclerView
 import timber.log.Timber
 import java.util.Timer
@@ -82,5 +83,15 @@ class ShowFragment : BaseFragment<MainActivity, FragmentShowBinding, DefaultPres
             getAttachActivity()?.hideTopBar(hide = true, animation = true)
         }
         return false
+    }
+
+    override fun enableFocusableAndRequestFirstFocused(): Boolean {
+        super.enableFocusableAndRequestFirstFocused()
+        return if (binding.recommendRv.childCount > 0) {
+            binding.recommendRv.getChildAt(0)?.requestFocused()
+            true
+        } else {
+            false
+        }
     }
 }

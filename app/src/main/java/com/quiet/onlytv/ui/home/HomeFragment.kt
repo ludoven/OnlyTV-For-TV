@@ -12,6 +12,7 @@ import com.quiet.onlytv.ui.adapter.BannerAdapter
 import com.quiet.onlytv.ui.adapter.HomeListAdapter
 import com.quiet.onlytv.utils.OnItemSelectedListener
 import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.utils.requestFocused
 import com.quiet.onlytv.widget.rv.BaseRecyclerView
 import com.quiet.onlytv.widget.rv.TopSmoothScroller
 
@@ -86,6 +87,16 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
             }
         }
         return false
+    }
+
+    override fun enableFocusableAndRequestFirstFocused(): Boolean {
+        super.enableFocusableAndRequestFirstFocused()
+        return if (binding.bannerRv.childCount > 0) {
+            binding.bannerRv.getChildAt(0)?.requestFocused()
+            true
+        } else {
+            false
+        }
     }
 
 }

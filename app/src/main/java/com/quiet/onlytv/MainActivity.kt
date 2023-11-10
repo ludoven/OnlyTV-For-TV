@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationSet
@@ -12,6 +13,7 @@ import android.view.animation.TranslateAnimation
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -44,6 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
     private val titleList = mutableListOf("Home", "Categories", "Movies", "Shows", "Favorites")
 
     private var mLastFocusView: View? = null
+    private var exitTime: Long = 0
 
     override fun initView() {
         initTab()
@@ -103,6 +106,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
             isUserInputEnabled = false
             offscreenPageLimit = fragmentList.size
         }
+        disablePagerInnerRvFocus()
     }
 
 
@@ -115,6 +119,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
 
             for (i in fragmentList.indices) {
                 fragmentList[i].focusSearchEnable(i == position)
+            }
+        }
+    }
+
+    /**
+     * 禁止ViewPager2内部类的RecycleView获得焦点
+     */
+    private fun disablePagerInnerRvFocus() {
+        for (i in 0 until binding.viewPager.childCount) {
+            if (binding.viewPager.getChildAt(i) is RecyclerView) {
+                binding.viewPager.getChildAt(i).isFocusable = false
             }
         }
     }
@@ -194,6 +209,37 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
         }, {
 
         })
+    }
+
+
+    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
+        if (event?.action == KeyEvent.ACTION_DOWN) {
+            when (event.keyCode) {
+                KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> {
+                    if (binding.icon.hasFocus() || binding.homeTab.hasFocus() || binding.searchTab.hasFocus()) {
+                        currentFragment.enableFocusableAndRequestFirstFocused()
+                        return true
+                    }
+                }
+
+                KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_ESCAPE -> {
+                    if (binding.icon.hasFocus() || binding.homeTab.hasFocus() || binding.searchTab.hasFocus()) {
+                        if (System.currentTimeMillis() - exitTime > 2000) {
+                            showToast(R.string.exit)
+                            exitTime = System.currentTimeMillis()
+                        } else {
+                            App.exitApp()
+                        }
+                        return true
+                    }
+                }
+            }
+
+            if (currentFragment.dispatchKeyEvent(event)) {
+                return true
+            }
+        }
+        return super.dispatchKeyEvent(event)
     }
 
 }

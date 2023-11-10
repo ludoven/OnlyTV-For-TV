@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ui.search.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:background="@drawable/shape_edite"
+        android:paddingHorizontal="37dp"
+        android:layout_marginHorizontal="77dp"
+        android:layout_marginTop="139dp"
+        android:textSize="19sp"
+        android:nextFocusLeft="@id/edit"
+        android:nextFocusRight="@id/edit"
+        android:hint="Search for movies, shows and more..."
+        android:textColor="@color/on_surface"
+        android:textColorHint="@color/hint"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="80dp"/>
 
-</FrameLayout>
+    <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+        android:id="@+id/search_rv"
+        tools:listitem="@layout/rv_favorite"
+        android:paddingStart="77dp"
+        android:layout_marginTop="43dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

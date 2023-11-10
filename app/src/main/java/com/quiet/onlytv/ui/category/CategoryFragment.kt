@@ -8,6 +8,7 @@ import com.quiet.onlytv.MainActivity
 import com.quiet.onlytv.databinding.FragmentCategoryBinding
 import com.quiet.onlytv.ui.adapter.CategoryAdapter
 import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.utils.requestFocused
 import com.quiet.onlytv.widget.rv.BaseRecyclerView
 
 class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, DefaultPresenter>(),
@@ -60,4 +61,14 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
         return position < spanCount
     }
 
+
+    override fun enableFocusableAndRequestFirstFocused(): Boolean {
+        super.enableFocusableAndRequestFirstFocused()
+        return if (binding.categoryRv.childCount > 0) {
+            binding.categoryRv.getChildAt(0)?.requestFocused()
+            true
+        } else {
+            false
+        }
+    }
 }

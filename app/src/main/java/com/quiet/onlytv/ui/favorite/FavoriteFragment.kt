@@ -16,6 +16,7 @@ import com.quiet.onlytv.databinding.FragmentFavoriteBinding
 import com.quiet.onlytv.ui.adapter.FavoriteAdapter
 import com.quiet.onlytv.ui.adapter.FavoriteTabAdapter
 import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.utils.requestFocused
 
 class FavoriteFragment : BaseFragment<MainActivity, FragmentFavoriteBinding, DefaultPresenter>(),
     OnKeyListener {
@@ -69,5 +70,15 @@ class FavoriteFragment : BaseFragment<MainActivity, FragmentFavoriteBinding, Def
             return true
         }
         return false
+    }
+
+    override fun enableFocusableAndRequestFirstFocused(): Boolean {
+        super.enableFocusableAndRequestFirstFocused()
+        return if (binding.tabRv.childCount > 0) {
+            binding.tabRv.getChildAt(0)?.requestFocused()
+            true
+        } else {
+            false
+        }
     }
 }
