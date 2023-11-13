@@ -60,7 +60,7 @@ class FavoriteFragment : BaseFragment<MainActivity, FragmentFavoriteBinding, Def
         binding.favoriteRv.adapter = favoriteAdapter
     }
 
-    override fun getPresenter(): DefaultPresenter {
+    override fun createPresenter(): DefaultPresenter {
         return DefaultPresenter()
     }
 

@@ -45,7 +45,7 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
     }
 
 
-    override fun getPresenter(): DefaultPresenter {
+    override fun createPresenter(): DefaultPresenter {
         return DefaultPresenter()
     }
 

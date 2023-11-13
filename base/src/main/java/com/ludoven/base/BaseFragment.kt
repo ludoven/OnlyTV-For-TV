@@ -57,7 +57,9 @@ abstract class BaseFragment<A : BaseActivity<*,*>,VB : ViewBinding, P : BaseCont
 
     open var mFragmentVisible = false
 
-    protected abstract fun getPresenter(): P
+    open fun createPresenter(): P?{
+        return null
+    }
 
 
     @Suppress("UNCHECKED_CAST")
@@ -78,7 +80,7 @@ abstract class BaseFragment<A : BaseActivity<*,*>,VB : ViewBinding, P : BaseCont
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mPresenter = getPresenter()
+        mPresenter = createPresenter()
         if (mPresenter != null) {
             mPresenter?.attachView(this)
         }

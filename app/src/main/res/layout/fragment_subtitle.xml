@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.set.SubtitleFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@color/on_surface"
+        android:textSize="32sp"
+        />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/switch_layout"
+        android:nextFocusUp="@id/switch_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/selector_help_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="21dp"
+        android:text="Contact us on"
+        android:textColor="@color/set_text"
+        android:textSize="21sp" >
+
+        <TextView
+            android:duplicateParentState="true"
+            android:text="Subtitles"
+            android:textColor="@color/set_text"
+            android:textSize="21sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <com.quiet.onlytv.widget.SwitchButton
+            android:id="@+id/switch_bt"
+            android:layout_width="53dp"
+            android:layout_height="32dp"
+            android:checked="true"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/sub_lang"
+        android:nextFocusDown="@id/sub_lang"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/selector_help_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="21dp"
+        android:text="Contact us on"
+        android:textColor="@color/set_text"
+        android:textSize="21sp" >
+
+        <TextView
+            android:duplicateParentState="true"
+            android:text="@string/subtitles_language"
+            android:textColor="@color/set_text"
+            android:textSize="21sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:duplicateParentState="true"
+            android:textColor="@color/set_text"
+            android:textSize="19sp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

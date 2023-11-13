@@ -64,10 +64,6 @@ class MovieFragment : BaseFragment<MainActivity,FragmentMovieBinding,DefaultPres
     }
 
 
-    override fun getPresenter(): DefaultPresenter {
-        return DefaultPresenter()
-    }
-
     override fun onKeyDown(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_UP) {
             binding.root.smoothScrollTo(0,0)

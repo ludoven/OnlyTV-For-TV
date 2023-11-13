@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:orientation="vertical"
     tools:context=".ui.set.HistoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_history"
+        android:textColor="@color/on_surface"
+        android:textSize="32sp" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clear_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="21dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:textColor="@color/set_text"
+        android:paddingHorizontal="48dp"
+        android:text="@string/clear_all"
+        android:background="@drawable/selector_bt_bg"
+        android:textSize="19sp"
+     />
+
+    <View
+        android:background="@color/line"
+        android:layout_marginTop="21dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_rv"
+        tools:itemCount="5"
+        tools:listitem="@layout/rv_history"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

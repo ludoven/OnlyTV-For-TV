@@ -35,10 +35,6 @@ class SearchFragment : BaseFragment<MainActivity,FragmentSearchBinding,DefaultPr
         return super.onKeyDown(keyCode, event)
     }
 
-    override fun getPresenter(): DefaultPresenter {
-        return DefaultPresenter()
-    }
-
     override fun enableFocusableAndRequestFirstFocused(): Boolean {
         super.enableFocusableAndRequestFirstFocused()
         return binding.edit.requestFocus()

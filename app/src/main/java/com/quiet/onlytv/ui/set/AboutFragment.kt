@@ -13,9 +13,6 @@ import com.quiet.onlytv.databinding.FragmentAboutBinding
 
 
 class AboutFragment : BaseFragment<MainActivity,FragmentAboutBinding,DefaultPresenter>() {
-    override fun getPresenter(): DefaultPresenter {
-        return DefaultPresenter()
-    }
 
     override fun initView() {
 

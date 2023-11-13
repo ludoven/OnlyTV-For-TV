@@ -60,7 +60,7 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
 
     }
 
-    override fun getPresenter(): DefaultPresenter {
+    override fun createPresenter(): DefaultPresenter {
         return DefaultPresenter()
     }
 

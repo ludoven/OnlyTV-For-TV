@@ -135,10 +135,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
     }
 
 
-    override fun getPresenter(): DefaultPresenter {
-        return DefaultPresenter()
-    }
-
     override fun onItemSelected(
         adapter: BaseQuickAdapter<*, *>?,
         v: View?,

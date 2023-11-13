@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.set.HelpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/help_and_support"
+        android:textColor="@color/on_surface"
+        android:textSize="32sp" />
+
+    <com.quiet.onlytv.widget.DrawableTextView
+        android:id="@+id/help_faq"
+        android:nextFocusUp="@id/help_faq"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/selector_help_bg"
+        android:focusable="true"
+        android:drawableEnd="@drawable/selector_next"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="21dp"
+        android:text="@string/faq_s"
+        android:textColor="@color/set_text"
+        android:textSize="21sp" />
+
+
+    <com.quiet.onlytv.widget.DrawableTextView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/selector_help_bg"
+        android:focusable="true"
+        android:drawableEnd="@drawable/selector_next"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="21dp"
+        android:text="@string/privacy_policy"
+        android:textColor="@color/set_text"
+        android:textSize="21sp" />
+
+
+    <LinearLayout
+        android:id="@+id/help_contact"
+        android:nextFocusDown="@id/help_contact"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/selector_help_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="21dp"
+        android:text="@string/contact_us_on"
+        android:textColor="@color/set_text"
+        android:textSize="21sp" >
+
+        <TextView
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:text="Contact us on"
+            android:textColor="@color/set_text"
+            android:textSize="21sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:duplicateParentState="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ludoven2019@gmail.com"
+            android:textColor="@color/set_text"
+            android:textSize="19sp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="About"
                 android:duplicateParentState="true"
-                android:textColor="@color/home_tab_text"
+                android:textColor="@color/set_text"
                 android:textSize="19sp"
                 />
         </LinearLayout>
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="Subtitles"
                 android:duplicateParentState="true"
-                android:textColor="@color/home_tab_text"
+                android:textColor="@color/set_text"
                 android:textSize="19sp"
                 />
         </LinearLayout>
@@ -78,6 +78,7 @@
             android:id="@+id/set_lan"
             android:paddingHorizontal="24dp"
             android:focusable="true"
+            android:visibility="gone"
             android:layout_marginBottom="5dp"
             android:focusableInTouchMode="true"
             android:gravity="center_vertical"
@@ -97,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="Preferred Language"
                 android:duplicateParentState="true"
-                android:textColor="@color/home_tab_text"
+                android:textColor="@color/set_text"
                 android:textSize="19sp"
                 />
         </LinearLayout>
@@ -125,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:text="Search history"
                 android:duplicateParentState="true"
-                android:textColor="@color/home_tab_text"
+                android:textColor="@color/set_text"
                 android:textSize="19sp"
                 />
         </LinearLayout>
@@ -157,15 +158,15 @@
                 android:layout_height="wrap_content"
                 android:text="Help and Support"
                 android:duplicateParentState="true"
-                android:textColor="@color/home_tab_text"
+                android:textColor="@color/set_text"
                 android:textSize="19sp"
                 />
         </LinearLayout>
 
     </LinearLayout>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container_view"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="96dp" />

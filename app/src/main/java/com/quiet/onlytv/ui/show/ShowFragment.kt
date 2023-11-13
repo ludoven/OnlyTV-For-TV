@@ -67,7 +67,7 @@ class ShowFragment : BaseFragment<MainActivity, FragmentShowBinding, DefaultPres
     }
 
 
-    override fun getPresenter(): DefaultPresenter {
+    override fun createPresenter(): DefaultPresenter {
         return DefaultPresenter()
     }
 

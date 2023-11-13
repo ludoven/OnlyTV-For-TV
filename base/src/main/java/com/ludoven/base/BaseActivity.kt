@@ -42,7 +42,7 @@ abstract class BaseActivity<VB : ViewBinding, P : BaseContract.IPresenter> : App
         super.onCreate(savedInstanceState)
         binding = ViewBindingUtil.inflateWithGeneric(this, layoutInflater)
         setContentView(binding.root)
-        mPresenter = getPresenter()
+        mPresenter = createPresenter()
         mPresenter?.attachView(this)
         initActivity()
     }
@@ -77,8 +77,9 @@ abstract class BaseActivity<VB : ViewBinding, P : BaseContract.IPresenter> : App
         initSoftKeyboard()
     }
 
-    abstract fun getPresenter(): P
-
+    open fun createPresenter(): P?{
+        return null
+    }
 
     /**
      * 初始化软键盘
