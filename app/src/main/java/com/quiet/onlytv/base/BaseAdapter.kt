@@ -1,4 +1,4 @@
-package com.quiet.onlytv.ui.adapter
+package com.quiet.onlytv.base
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder

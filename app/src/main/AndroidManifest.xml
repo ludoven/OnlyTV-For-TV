@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.software.leanback"
@@ -14,6 +14,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:banner="@mipmap/ic_launcher"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -21,9 +22,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlyTV"
-        tools:targetApi="31"
-        android:banner="@mipmap/ic_launcher">
-
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.info.InfoActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="design_width_in_dp"
@@ -31,6 +33,7 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="720" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -39,7 +42,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

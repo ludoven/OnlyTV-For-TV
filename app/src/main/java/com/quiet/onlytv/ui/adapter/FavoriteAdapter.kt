@@ -1,16 +1,11 @@
 package com.quiet.onlytv.ui.adapter
 
 import android.content.res.ColorStateList
-import android.graphics.Color
-import android.view.KeyEvent
 import androidx.core.content.ContextCompat
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.google.android.material.card.MaterialCardView
 import com.google.android.material.imageview.ShapeableImageView
 import com.quiet.onlytv.R
-import com.quiet.onlytv.utils.OnItemSelectedListener
-import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.base.BaseAdapter
 
 /**
  *

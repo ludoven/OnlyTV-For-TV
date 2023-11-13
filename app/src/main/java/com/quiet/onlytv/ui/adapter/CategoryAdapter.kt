@@ -1,16 +1,11 @@
 package com.quiet.onlytv.ui.adapter
 
-import android.R.attr.radius
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
-import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.quiet.onlytv.R
-import com.quiet.onlytv.utils.OnKeyListener
+import com.quiet.onlytv.base.BaseAdapter
 import jp.wasabeef.glide.transformations.BlurTransformation
 
 
