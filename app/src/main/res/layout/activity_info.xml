@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,29 +7,361 @@
     tools:context=".ui.info.InfoActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/info_bg"
+                android:layout_width="match_parent"
+                android:layout_height="611dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/icon_recommend" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_info_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="77dp"
+                android:layout_marginTop="173dp"
+                android:textColor="@color/white"
+                android:textSize="54sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Vikram Rana" />
+
+            <TextView
+                android:id="@+id/des_tv"
+                android:layout_width="533dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="77dp"
+                android:layout_marginTop="27dp"
+                android:maxLines="3"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_tv"
+                tools:text="A fearless warrior embarks on a thrilling journey to protect his kingdom, discovering his true destiny along the way." />
+
+            <TextView
+                android:id="@+id/info_tv"
+                android:layout_width="533dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="77dp"
+                android:layout_marginTop="27dp"
+                android:textColor="@color/white"
+                android:textSize="19sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/des_tv"
+                tools:text="PG-13  • 2022 (US)  • Action, Superhero • 1h 54m" />
+
+            <TextView
+                android:id="@+id/director_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="77dp"
+                android:layout_marginTop="43dp"
+                android:text="@string/director"
+                android:textColor="@color/white50"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/info_tv" />
+
+            <TextView
+                android:id="@+id/director_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/director_title"
+                app:layout_constraintTop_toBottomOf="@id/director_title"
+                tools:text="Alexandre Dimitrov" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/director_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="director_content,director_title" />
+
+            <TextView
+                android:id="@+id/writer_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:text="@string/writer"
+                android:textColor="@color/white50"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/director_barrier"
+                app:layout_constraintTop_toTopOf="@id/director_title" />
+
+            <TextView
+                android:id="@+id/writer_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/writer_title"
+                app:layout_constraintTop_toBottomOf="@id/writer_title"
+                tools:text="Georgi Horvath" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/writer_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="writer_content,writer_title" />
+
+            <TextView
+                android:id="@+id/screenplay_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:text="@string/screenplay"
+                android:textColor="@color/white50"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/writer_barrier"
+                app:layout_constraintTop_toTopOf="@id/director_title" />
+
+            <TextView
+                android:id="@+id/screenplay_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/screenplay_title"
+                app:layout_constraintTop_toBottomOf="@id/screenplay_title"
+                tools:text="Ben Jackson" />
+
+            <com.quiet.onlytv.widget.DrawableTextView
+                android:id="@+id/watch_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_marginStart="77dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/selector_watch_bt_bg"
+                android:drawableStart="@drawable/selector_play"
+                android:drawablePadding="5dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="21dp"
+                android:text="@string/watch_now"
+                android:textColor="@color/set_text"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:drawableHeight="21dp"
+                app:drawableWidth="21dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/director_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
-            android:layout_marginHorizontal="77dp"
-            android:layout_marginTop="173dp"
+            android:id="@+id/actor_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Vikram Rana"
+            android:layout_marginStart="77dp"
+            android:text="Cast &amp; Crew"
             android:textColor="@color/white"
-            android:textSize="54sp"
-            />
+            android:textSize="21sp" />
+
+        <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+            android:id="@+id/actor_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="77dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/rv_actor" />
 
         <TextView
-            android:layout_marginHorizontal="77dp"
-            android:layout_marginTop="27dp"
-            android:layout_width="533dp"
+            android:id="@+id/related_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="A fearless warrior embarks on a thrilling journey to protect his kingdom, discovering his true destiny along the way."
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="53dp"
+            android:text="Related Suggestion"
             android:textColor="@color/white"
-            android:textSize="19sp"
-            />
+            android:textSize="21sp" />
+
+        <com.quiet.onlytv.widget.rv.HorizontalRecyclerView
+            android:id="@+id/related_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="77dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/rv_home_horizontal" />
+
+        <TextView
+            android:id="@+id/reviews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="53dp"
+            android:text="Reviews"
+            android:textColor="@color/white"
+            android:textSize="21sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:paddingHorizontal="77dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0px"
+                android:layout_height="128dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_reviews_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <ImageView
+                    android:id="@+id/icon1"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white5"
+                    android:paddingHorizontal="27dp"
+                    android:paddingVertical="11dp"
+                    android:src="@drawable/ic_reviews_1"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/reviews_title_1"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:text="Mashed Potatoes"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    app:layout_constraintBottom_toTopOf="@id/reviews_des_1"
+                    app:layout_constraintEnd_toStartOf="@id/reviews_content_1"
+                    app:layout_constraintStart_toEndOf="@id/icon1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/reviews_des_1"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="22 reviews"
+                    android:textColor="#ffbdc1c6"
+                    android:textSize="19sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/reviews_content_1"
+                    app:layout_constraintStart_toStartOf="@id/reviews_title_1"
+                    app:layout_constraintTop_toBottomOf="@id/reviews_title_1" />
+
+                <TextView
+                    android:id="@+id/reviews_content_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="27dp"
+                    android:text="89%"
+                    android:textColor="@color/white"
+                    android:textSize="43sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0px"
+                android:layout_height="128dp"
+                android:layout_marginStart="27dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_reviews_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <ImageView
+                    android:id="@+id/icon2"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white5"
+                    android:paddingHorizontal="27dp"
+                    android:paddingVertical="11dp"
+                    android:src="@drawable/ic_reviews_2"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/reviews_title_2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    android:text="Mashed Potatoes"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    app:layout_constraintBottom_toTopOf="@id/reviews_des_2"
+                    app:layout_constraintEnd_toStartOf="@id/reviews_content_2"
+                    app:layout_constraintStart_toEndOf="@id/icon2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/reviews_des_2"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="22 reviews"
+                    android:textColor="#ffbdc1c6"
+                    android:textSize="19sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/reviews_content_2"
+                    app:layout_constraintStart_toStartOf="@id/reviews_title_2"
+                    app:layout_constraintTop_toBottomOf="@id/reviews_title_2" />
+
+                <TextView
+                    android:id="@+id/reviews_content_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="27dp"
+                    android:text="9.2"
+                    android:textColor="@color/white"
+                    android:textSize="43sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="77dp"
+            android:layout_marginTop="53dp"
+            android:background="@color/white10" />
 
     </LinearLayout>
 

@@ -10,6 +10,7 @@ import com.quiet.onlytv.MainActivity
 import com.quiet.onlytv.databinding.FragmentHomeBinding
 import com.quiet.onlytv.ui.adapter.BannerAdapter
 import com.quiet.onlytv.ui.adapter.HomeListAdapter
+import com.quiet.onlytv.ui.info.InfoActivity
 import com.quiet.onlytv.utils.OnItemSelectedListener
 import com.quiet.onlytv.utils.OnKeyListener
 import com.quiet.onlytv.utils.requestFocused
@@ -47,7 +48,9 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
                 getAttachActivity()?.hideTopBar(hide = false, animation = true)
             }
         })
-
+        bannerAdapter.setOnItemClickListener{_,_,_->
+            context?.let { InfoActivity.start(it) }
+        }
     }
 
     override fun initData() {
@@ -57,7 +60,9 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
     private fun initListAdapter(){
         homeListAdapter = HomeListAdapter(mutableListOf("","",""))
         binding.listRv.adapter = homeListAdapter
-
+        homeListAdapter.setOnItemClickListener{_,_,pos ->
+            context?.let { InfoActivity.start(it) }
+        }
     }
 
     override fun createPresenter(): DefaultPresenter {
