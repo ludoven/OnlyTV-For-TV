@@ -7,10 +7,12 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.ludoven.base.BaseActivity
 import com.ludoven.base.mvp.DefaultPresenter
+import com.ludoven.base.utils.singleClick
 import com.quiet.onlytv.R
 import com.quiet.onlytv.databinding.ActivityInfoBinding
 import com.quiet.onlytv.ui.adapter.ActorAdapter
 import com.quiet.onlytv.ui.adapter.HomeHorizontalAdapter
+import com.quiet.onlytv.ui.player.PlayerActivity
 import com.quiet.onlytv.utils.requestFocused
 
 class InfoActivity : BaseActivity<ActivityInfoBinding,DefaultPresenter>() {
@@ -32,6 +34,9 @@ class InfoActivity : BaseActivity<ActivityInfoBinding,DefaultPresenter>() {
         binding.watchBt.requestFocused()
         Glide.with(this).load(R.drawable.icon_recommend).into(binding.infoBg)
 
+        binding.watchBt.singleClick {
+            PlayerActivity.start(this)
+        }
         initActorAdapter()
         initHorizontalAdapter()
     }

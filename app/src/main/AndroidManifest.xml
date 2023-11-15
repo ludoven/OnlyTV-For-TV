@@ -24,6 +24,9 @@
         android:theme="@style/Theme.OnlyTV"
         tools:targetApi="31">
         <activity
+            android:name=".ui.player.PlayerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.info.InfoActivity"
             android:exported="false" />
 

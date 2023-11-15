@@ -12,14 +12,14 @@
 - 对按键的控制以及适配键盘按键操作
 - 简洁美观的界面
 - RecyclerView TV端纵向横向对焦点、滑动速度、性能封装优化
-- 封装播放器，适配ExoPlayer、IjkPlayer
+- 封装播放器，适配 Media3
 
 ###### 待开发功能：
 
 - [ ] 投屏
-- [ ] ExoPlayer
+- [x] Media3 ~~ExoPlayer~~ ExoPlayer 后续全部迁移至Media3
 - [ ] TVBox
-- [ ] - [ ] IPTV
+- [ ] IPTV
 - [x] 适配键盘操作
 
 ## 截图
