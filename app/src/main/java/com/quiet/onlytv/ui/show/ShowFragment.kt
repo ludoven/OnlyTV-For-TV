@@ -71,7 +71,7 @@ class ShowFragment : BaseFragment<MainActivity, FragmentShowBinding, DefaultPres
         return DefaultPresenter()
     }
 
-    override fun onKeyDown(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
+    override fun onAdapterKeyEvent(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_UP) {
             binding.root.post {
                 binding.root.smoothScrollTo(0, 0)

@@ -52,4 +52,5 @@ class InfoActivity : BaseActivity<ActivityInfoBinding,DefaultPresenter>() {
 
     }
 
+
 }

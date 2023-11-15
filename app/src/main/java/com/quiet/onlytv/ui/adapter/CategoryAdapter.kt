@@ -46,7 +46,7 @@ class CategoryAdapter(mutableList: MutableList<String>) : BaseAdapter<String>(
         }
 
         holder.itemView.setOnKeyListener { view, i, keyEvent ->
-            return@setOnKeyListener mKeyListener?.onKeyDown(holder.bindingAdapterPosition,i,keyEvent)?:false
+            return@setOnKeyListener mKeyListener?.onAdapterKeyEvent(holder.bindingAdapterPosition,i,keyEvent)?:false
         }
     }
 

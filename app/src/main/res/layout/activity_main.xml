@@ -23,6 +23,7 @@
             android:padding="1dp"
             app:strokeWidth="1dp"
             app:strokeColor="@color/home_icon_stork"
+            android:nextFocusRight="@id/home_tab"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:src="@drawable/icon_header"

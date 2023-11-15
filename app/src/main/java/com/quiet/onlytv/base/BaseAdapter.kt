@@ -34,7 +34,7 @@ open class BaseAdapter <T>(
             mSelectedListener?.onItemSelected(this, holder.itemView, holder.bindingAdapterPosition, hasFocus)
         }
         holder.itemView.setOnKeyListener { _, keyCode, event ->
-           return@setOnKeyListener mKeyListener?.onKeyDown(holder.bindingAdapterPosition, keyCode, event)?:false
+           return@setOnKeyListener mKeyListener?.onAdapterKeyEvent(holder.bindingAdapterPosition, keyCode, event)?:false
         }
     }
 

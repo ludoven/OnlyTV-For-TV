@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.ludoven.base.BaseFragment
 import com.ludoven.base.mvp.DefaultPresenter
 import com.quiet.onlytv.MainActivity
+import com.quiet.onlytv.base.Constant
 import com.quiet.onlytv.databinding.FragmentHomeBinding
 import com.quiet.onlytv.ui.adapter.BannerAdapter
 import com.quiet.onlytv.ui.adapter.HomeListAdapter
@@ -16,6 +17,7 @@ import com.quiet.onlytv.utils.OnKeyListener
 import com.quiet.onlytv.utils.requestFocused
 import com.quiet.onlytv.widget.rv.BaseRecyclerView
 import com.quiet.onlytv.widget.rv.TopSmoothScroller
+import timber.log.Timber
 
 
 class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPresenter>(),
@@ -80,15 +82,17 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
         }*/
     }
 
-    override fun onKeyDown(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
+    override fun onAdapterKeyEvent(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN){
-            if (keyCode == KeyEvent.KEYCODE_DPAD_UP){
-                binding.root.smoothScrollTo(0,0)
-                getAttachActivity()?.requestFocusTab()
-                return true
-            }
-            if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN){
-                getAttachActivity()?.hideTopBar(hide = true, animation = true)
+            when(keyCode){
+                KeyEvent.KEYCODE_DPAD_UP->{
+                    binding.root.smoothScrollTo(0,0)
+                    getAttachActivity()?.requestFocusTab()
+                    return true
+                }
+                KeyEvent.KEYCODE_DPAD_DOWN->{
+                    getAttachActivity()?.hideTopBar(hide = true, animation = true)
+                }
             }
         }
         return false

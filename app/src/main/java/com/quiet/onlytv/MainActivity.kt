@@ -207,18 +207,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
         })
     }
 
-
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN) {
             when (event.keyCode) {
-                KeyEvent.KEYCODE_DPAD_DOWN, KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> {
+                in Constant.KeyCode.selectKeys, KeyEvent.KEYCODE_DPAD_DOWN->{
                     if (binding.icon.hasFocus() || binding.homeTab.hasFocus() || binding.searchTab.hasFocus()) {
                         currentFragment.enableFocusableAndRequestFirstFocused()
                         return true
                     }
                 }
 
-                KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_ESCAPE -> {
+               in Constant.KeyCode.backKeys-> {
                     if (binding.icon.hasFocus() || binding.homeTab.hasFocus() || binding.searchTab.hasFocus()) {
                         if (System.currentTimeMillis() - exitTime > 2000) {
                             showToast(R.string.exit)

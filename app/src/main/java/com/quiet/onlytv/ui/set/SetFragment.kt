@@ -89,7 +89,7 @@ class SetFragment : BaseFragment<MainActivity, FragmentSetBinding, DefaultPresen
             return true
         }
 
-        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT && binding.root.hasFocus()) {
             return currentFragment.enableFocusableAndRequestFirstFocused()
         }
         return super.onKeyDown(keyCode, event)

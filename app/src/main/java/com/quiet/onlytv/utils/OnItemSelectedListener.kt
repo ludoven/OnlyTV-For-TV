@@ -9,5 +9,5 @@ interface OnItemSelectedListener {
 }
 
 interface OnKeyListener {
-    fun onKeyDown(pos:Int,keyCode: Int, event: KeyEvent?):Boolean
+    fun onAdapterKeyEvent(pos:Int, keyCode: Int, event: KeyEvent?):Boolean
 }

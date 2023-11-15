@@ -10,7 +10,7 @@
     app:cardBackgroundColor="#292A2D"
     app:cardCornerRadius="5dp"
     app:strokeColor="@color/home_icon_stork"
-    app:strokeWidth="2dp">
+    app:strokeWidth="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"

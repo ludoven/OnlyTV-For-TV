@@ -2,7 +2,7 @@
     <string name="app_name">OnlyTV</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="exit">exit\n</string>
+    <string name="exit">exit</string>
     <string name="about_text">Welcome to OnlyTV! We are a new and exciting streaming platform that offers a vast selection of movies, TV shows, and original content for you to enjoy. Our team is dedicated to providing an intuitive and seamless streaming experience for all users. With a simple and intuitive interface, you can easily find and watch your favourite content in just a few clicks. We are constantly updating and expanding our library, so there is always something new to discover. We also offer personalized recommendations based on your viewing history, so you can easily find new and exciting content to enjoy. Thank you for choosing OnlyTV for all of your entertainment needs. We hope you have a great time streaming!</string>
     <string name="help_and_support">Help and Support</string>
     <string name="faq_s">FAQ’s</string>

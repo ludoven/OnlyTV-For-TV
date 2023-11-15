@@ -15,11 +15,14 @@ import com.quiet.onlytv.databinding.FragmentAboutBinding
 class AboutFragment : BaseFragment<MainActivity,FragmentAboutBinding,DefaultPresenter>() {
 
     override fun initView() {
-
+        focusSearchEnable(false)
     }
 
     override fun initData() {
 
     }
 
+    override fun enableFocusableAndRequestFirstFocused(): Boolean {
+        return true
+    }
 }

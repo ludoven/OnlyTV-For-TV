@@ -23,7 +23,7 @@
 
         <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
         <item name="textAllCaps">false</item>
-
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <!-- 关闭 TextView 自带的文字间距 -->
         <item name="android:includeFontPadding">false</item>
     </style>
