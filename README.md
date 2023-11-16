@@ -1,6 +1,8 @@
 # OnlyTV For TV
 
 
+[English](./README_EN.md)
+
 ## 介绍
 
 为Android TV设计的全方位影视应用，涵盖直播、短视频、电影和电视剧等丰富资源，提供全面的娱乐体验。
