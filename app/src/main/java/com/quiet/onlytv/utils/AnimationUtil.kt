@@ -1,11 +1,8 @@
 package com.quiet.onlytv.utils
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.view.View
 import android.view.animation.Animation
-import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 
 object AnimationUtil {
