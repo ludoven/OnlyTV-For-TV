@@ -22,12 +22,6 @@
 
 
 
-## Download
-
-手机版：
-
-[![img](https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png)](https://play.google.com/store/apps/details?id=com.quiet.live)
-
 ###### 待开发功能：
 
 
