@@ -1,5 +1,6 @@
-[English](./README_EN.md)
+# OnlyTV
 
+[English](./README_EN.md)
 
 
 ## 介绍
@@ -9,6 +10,12 @@
 为Android TV设计的全方位影视应用，涵盖直播、短视频、电影和电视剧等丰富资源，提供全面的娱乐体验。
 
 
+
+## 体验
+
+[下载链接](https://ludoven.github.io/OnlyTV-Library/OnlyTV-1.0.0.apk)
+
+简单的做了一个可正常体验的版本,还有很多细节功能没有优化开发，后续有时间逐步完善。（仅供TV开发学习）
 
 ###### 特点：
 
