@@ -15,6 +15,8 @@
 
 [下载链接](https://ludoven.github.io/OnlyTV-Library/OnlyTV-1.0.0.apk)
 
+[库](https://github.com/ludoven/OnlyTV-Library)
+
 简单的做了一个可正常体验的版本,还有很多细节功能没有优化开发，后续有时间逐步完善。（仅供TV开发学习）
 
 ###### 特点：
