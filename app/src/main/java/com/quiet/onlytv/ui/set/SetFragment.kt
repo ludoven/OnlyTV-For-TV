@@ -16,6 +16,7 @@ import com.quiet.onlytv.ui.home.HomeFragment
 import com.quiet.onlytv.ui.movie.MovieFragment
 import com.quiet.onlytv.ui.search.SearchFragment
 import com.quiet.onlytv.ui.show.ShowFragment
+import com.quiet.onlytv.utils.disablePagerInnerRvFocus
 import com.quiet.onlytv.utils.requestFocused
 
 
@@ -54,8 +55,8 @@ class SetFragment : BaseFragment<MainActivity, FragmentSetBinding, DefaultPresen
             adapter = viewPagerAdapter
             isUserInputEnabled = false
             offscreenPageLimit = fragmentList.size
+            disablePagerInnerRvFocus()
         }
-        disablePagerInnerRvFocus()
     }
 
 
@@ -72,16 +73,6 @@ class SetFragment : BaseFragment<MainActivity, FragmentSetBinding, DefaultPresen
         }
     }
 
-    /**
-     * 禁止ViewPager2内部类的RecycleView获得焦点
-     */
-    private fun disablePagerInnerRvFocus() {
-        for (i in 0 until binding.viewPager.childCount) {
-            if (binding.viewPager.getChildAt(i) is RecyclerView) {
-                binding.viewPager.getChildAt(i).isFocusable = false
-            }
-        }
-    }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_DPAD_UP && binding.setAbout.hasFocus()) {

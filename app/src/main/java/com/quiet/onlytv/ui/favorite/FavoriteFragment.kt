@@ -30,9 +30,7 @@ class FavoriteFragment : BaseFragment<MainActivity, FragmentFavoriteBinding, Def
     }
 
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
     private fun initTabAdapter() {
         tabAdapter = FavoriteTabAdapter(

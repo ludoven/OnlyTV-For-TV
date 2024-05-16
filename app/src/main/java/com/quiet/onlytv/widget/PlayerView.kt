@@ -23,7 +23,8 @@ import com.quiet.onlytv.utils.PlayerUtils
 import com.quiet.onlytv.utils.focusSearchEnable
 import timber.log.Timber
 
- @UnstableApi /**
+@UnstableApi
+/**
  *
  *  author： ludoven
  *  date :   2023/11/15 13:46
@@ -50,10 +51,11 @@ class PlayerView @JvmOverloads constructor(
     }
 
     private fun initPlayer() {
-        mPlayer = ExoPlayer.Builder(context).build()
-        mPlayer?.setVideoSurfaceView(binding.surfaceView)
-        mPlayer?.addListener(this)
-        mPlayer?.addAnalyticsListener(this)
+        mPlayer = ExoPlayer.Builder(context).build().apply {
+            setVideoSurfaceView(binding.surfaceView)
+            addListener(this@PlayerView)
+            addAnalyticsListener(this@PlayerView)
+        }
         initSeek()
     }
 
@@ -71,35 +73,28 @@ class PlayerView @JvmOverloads constructor(
         binding.playerTotalTime.text = duration
     }
 
-    fun startPlay(url: String) {
-        if (url.isBlank()) {
-            return
-        }
-        val mediaItem = MediaItem.fromUri(url)
-        mPlayer?.apply {
-            setMediaItem(mediaItem)
-            prepare()
-            play()
-        }
-    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        removeCallbacks(hideControllerRunnable)
+        removeCallbacks(showControllerRunnable)
 
-    fun onPause() {
-        if (mPlayer != null) {
-            mPlayer?.pause()
+        //如果播控界面可见 则7s后自动隐藏
+        if (binding.controllerLayout.isVisible) {
+            // 隐藏控制面板
+            postDelayed(hideControllerRunnable, 7000)
         }
-    }
 
-    fun onStop() {
-        if (mPlayer != null) {
-            mPlayer?.stop()
-        }
-    }
+        when (keyCode) {
+            in Constant.KeyCode.selectKeys -> {
+            }
 
-    fun releasePlayer() {
-        if (mPlayer != null) {
-            mPlayer?.release()
-            mPlayer = null
+            KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT -> {
+                if (!binding.controllerLayout.isVisible) {
+                    showController(true)
+                }
+                return true
+            }
         }
+        return super.onKeyDown(keyCode, event)
     }
 
     private fun showController() {
@@ -110,12 +105,9 @@ class PlayerView @JvmOverloads constructor(
         binding.controllerLayout.animateWithCallback(
             context,
             Constant.Anim.BOTTOM_ENTER,
-            animTime,
-            {
+            animTime, {
                 binding.controllerLayout.focusSearchEnable(true)
-            },
-            {
-            })
+            }, {})
     }
 
     private fun hideController() {
@@ -129,15 +121,7 @@ class PlayerView @JvmOverloads constructor(
         })
     }
 
-    private val showControllerRunnable = Runnable {
-        showController()
-    }
-
-    private val hideControllerRunnable = Runnable {
-        hideController()
-    }
-
-    fun showController(show: Boolean) {
+    private fun showController(show: Boolean) {
         removeCallbacks(hideControllerRunnable)
         removeCallbacks(showControllerRunnable)
         if (show) {
@@ -178,28 +162,43 @@ class PlayerView @JvmOverloads constructor(
         })
     }
 
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        removeCallbacks(hideControllerRunnable)
-        removeCallbacks(showControllerRunnable)
-
-        //如果播控界面可见 则7s后自动隐藏
-        if (binding.controllerLayout.isVisible) {
-            // 隐藏控制面板
-            postDelayed(hideControllerRunnable, 7000)
+    fun startPlay(url: String) {
+        if (url.isBlank()) {
+            return
         }
-
-        when (keyCode) {
-            in Constant.KeyCode.selectKeys -> {
-            }
-
-            KeyEvent.KEYCODE_DPAD_LEFT, KeyEvent.KEYCODE_DPAD_RIGHT -> {
-                if (!binding.controllerLayout.isVisible) {
-                    showController(true)
-                }
-                return true
-            }
+        val mediaItem = MediaItem.fromUri(url)
+        mPlayer?.apply {
+            setMediaItem(mediaItem)
+            prepare()
+            play()
         }
-        return super.onKeyDown(keyCode, event)
+    }
+
+    fun onPause() {
+        if (mPlayer != null) {
+            mPlayer?.pause()
+        }
+    }
+
+    fun onStop() {
+        if (mPlayer != null) {
+            mPlayer?.stop()
+        }
+    }
+
+    fun releasePlayer() {
+        if (mPlayer != null) {
+            mPlayer?.release()
+            mPlayer = null
+        }
+    }
+
+    private val showControllerRunnable = Runnable {
+        showController()
+    }
+
+    private val hideControllerRunnable = Runnable {
+        hideController()
     }
 
 }

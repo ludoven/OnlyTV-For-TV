@@ -23,9 +23,7 @@ class SearchFragment : BaseFragment<MainActivity,FragmentSearchBinding,DefaultPr
         binding.searchRv.adapter = searchAdapter
     }
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_DPAD_UP && binding.edit.hasFocus()){

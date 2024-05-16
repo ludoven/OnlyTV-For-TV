@@ -34,6 +34,7 @@ import com.quiet.onlytv.utils.AnimationUtil
 import com.quiet.onlytv.utils.AnimationUtil.animateWithCallback
 import com.quiet.onlytv.utils.MyAnimationListener
 import com.quiet.onlytv.utils.OnItemSelectedListener
+import com.quiet.onlytv.utils.disablePagerInnerRvFocus
 import com.quiet.onlytv.utils.requestFocused
 import timber.log.Timber
 
@@ -69,9 +70,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
     }
 
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
 
     private fun initTab() {
@@ -105,35 +104,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
             adapter = viewPagerAdapter
             isUserInputEnabled = false
             offscreenPageLimit = fragmentList.size
-        }
-        disablePagerInnerRvFocus()
-    }
-
-
-    private val onPageChangeCallback = object :
-        ViewPager2.OnPageChangeCallback() {
-        override fun onPageSelected(position: Int) {
-            super.onPageSelected(position)
-            currentFragment = fragmentList[position]
-            currentFragment.focusSearchEnable(true)
-
-            for (i in fragmentList.indices) {
-                fragmentList[i].focusSearchEnable(i == position)
-            }
+            disablePagerInnerRvFocus()
         }
     }
-
-    /**
-     * 禁止ViewPager2内部类的RecycleView获得焦点
-     */
-    private fun disablePagerInnerRvFocus() {
-        for (i in 0 until binding.viewPager.childCount) {
-            if (binding.viewPager.getChildAt(i) is RecyclerView) {
-                binding.viewPager.getChildAt(i).isFocusable = false
-            }
-        }
-    }
-
 
     override fun onItemSelected(
         adapter: BaseQuickAdapter<*, *>?,
@@ -144,68 +117,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
         selectFragment(pos + 1, hasFocus, v)
     }
 
-    private fun selectFragment(pos: Int, hasFocus: Boolean, v: View?) {
-        if (hasFocus) {
-            binding.viewPager.setCurrentItem(pos, false)
-            v?.isSelected = true
-            if (v != mLastFocusView) {
-                mLastFocusView?.isSelected = false
-            }
-
-        } else {
-            mLastFocusView = v
-        }
-    }
-
-
-    fun requestFocusTab() {
-        if (!binding.topLayout.isVisible) {
-            startShowAnimation()
-            return
-        }
-        Timber.d("$mLastFocusView")
-        mLastFocusView?.requestFocused()
-    }
-
-    fun hideTopBar(hide: Boolean, animation: Boolean = false) {
-        Log.d(TAG, "hideTopBar: hide:${hide};animation:${animation}")
-        if (hide) {
-            if (animation) {
-                startHideAnimation()
-            } else {
-                binding.topLayout.isVisible = false
-            }
-        } else {
-            if (animation) {
-                startShowAnimation()
-            } else {
-                binding.topLayout.isVisible = true
-            }
-        }
-    }
-
-    private fun startHideAnimation() {
-        if (!binding.topLayout.isVisible) {
-            return
-        }
-        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_EXIT, 300, {
-
-        }, {
-            binding.topLayout.visibility = View.GONE
-        })
-    }
-
-    private fun startShowAnimation() {
-        Timber.d("startShowAnimation: isVisible:${binding.topLayout.isVisible}")
-        if (binding.topLayout.isVisible) {
-            return
-        }
-        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_ENTER, 300, {
-            binding.topLayout.visibility = View.VISIBLE
-        }, {
-
-        })
-    }
 
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN) {
@@ -235,6 +146,82 @@ class MainActivity : BaseActivity<ActivityMainBinding, DefaultPresenter>(), OnIt
             }
         }
         return super.dispatchKeyEvent(event)
+    }
+
+    private fun selectFragment(pos: Int, hasFocus: Boolean, v: View?) {
+        if (hasFocus) {
+            binding.viewPager.setCurrentItem(pos, false)
+            v?.isSelected = true
+            if (v != mLastFocusView) {
+                mLastFocusView?.isSelected = false
+            }
+
+        } else {
+            mLastFocusView = v
+        }
+    }
+
+
+    private fun startHideAnimation() {
+        if (!binding.topLayout.isVisible) {
+            return
+        }
+        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_EXIT, 300, {
+
+        }, {
+            binding.topLayout.visibility = View.GONE
+        })
+    }
+
+    private fun startShowAnimation() {
+        Timber.d("startShowAnimation: isVisible:${binding.topLayout.isVisible}")
+        if (binding.topLayout.isVisible) {
+            return
+        }
+        binding.topLayout.animateWithCallback(this, Constant.Anim.TOP_ENTER, 300, {
+            binding.topLayout.visibility = View.VISIBLE
+        }, {
+
+        })
+    }
+
+    fun requestFocusTab() {
+        if (!binding.topLayout.isVisible) {
+            startShowAnimation()
+            return
+        }
+        Timber.d("$mLastFocusView")
+        mLastFocusView?.requestFocused()
+    }
+
+    fun hideTopBar(hide: Boolean, animation: Boolean = false) {
+        Timber.d(TAG, "hideTopBar: hide:${hide};animation:${animation}")
+        if (hide) {
+            if (animation) {
+                startHideAnimation()
+            } else {
+                binding.topLayout.isVisible = false
+            }
+        } else {
+            if (animation) {
+                startShowAnimation()
+            } else {
+                binding.topLayout.isVisible = true
+            }
+        }
+    }
+
+    private val onPageChangeCallback = object :
+        ViewPager2.OnPageChangeCallback() {
+        override fun onPageSelected(position: Int) {
+            super.onPageSelected(position)
+            currentFragment = fragmentList[position]
+            currentFragment.focusSearchEnable(true)
+
+            for (i in fragmentList.indices) {
+                fragmentList[i].focusSearchEnable(i == position)
+            }
+        }
     }
 
 }

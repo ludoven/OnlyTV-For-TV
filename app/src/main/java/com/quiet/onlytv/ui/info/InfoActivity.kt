@@ -53,9 +53,7 @@ class InfoActivity : BaseActivity<ActivityInfoBinding,DefaultPresenter>() {
         binding.relatedRv.canFocusOutHorizontal(false)
     }
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
 
 }

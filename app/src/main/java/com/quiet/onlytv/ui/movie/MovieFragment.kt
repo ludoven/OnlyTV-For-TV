@@ -30,9 +30,7 @@ class MovieFragment : BaseFragment<MainActivity,FragmentMovieBinding,DefaultPres
         initListAdapter()
     }
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
     private fun initRecommendAdapter(){
         val mutableListOf = mutableListOf<String>(
@@ -58,6 +56,7 @@ class MovieFragment : BaseFragment<MainActivity,FragmentMovieBinding,DefaultPres
             }
         })
     }
+
     private fun initListAdapter(){
         homeListAdapter = HomeListAdapter(mutableListOf("","",""))
         binding.movieRv.adapter = homeListAdapter

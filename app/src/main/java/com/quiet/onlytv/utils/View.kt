@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 
 
 fun RecyclerView.requestFocusPos(pos: Int): Boolean {
@@ -36,6 +37,17 @@ fun View.onGlobalLayout(callback: () -> Unit) {
         }
     }
     viewTreeObserver.addOnGlobalLayoutListener(listener)
+}
+
+/**
+ * 禁止ViewPager2内部类的RecycleView获得焦点
+ */
+fun ViewPager2.disablePagerInnerRvFocus() {
+    for (i in 0 until childCount) {
+        if (getChildAt(i) is RecyclerView) {
+            getChildAt(i).isFocusable = false
+        }
+    }
 }
 
 

@@ -40,14 +40,7 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
         binding.categoryRv.canFocusOutHorizontal(false)
     }
 
-    override fun initData() {
-
-    }
-
-
-    override fun createPresenter(): DefaultPresenter {
-        return DefaultPresenter()
-    }
+    override fun initData() {}
 
     override fun onAdapterKeyEvent(pos: Int, keyCode: Int, event: KeyEvent?): Boolean {
         if (event?.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_UP && isFirstRow(pos,spanCount)) {
@@ -57,11 +50,6 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
         return false
     }
 
-    private fun isFirstRow(position: Int, spanCount: Int): Boolean {
-        return position < spanCount
-    }
-
-
     override fun enableFocusableAndRequestFirstFocused(): Boolean {
         super.enableFocusableAndRequestFirstFocused()
         return if (binding.categoryRv.childCount > 0) {
@@ -70,5 +58,10 @@ class CategoryFragment : BaseFragment<MainActivity, FragmentCategoryBinding, Def
         } else {
             false
         }
+    }
+
+
+    private fun isFirstRow(position: Int, spanCount: Int): Boolean {
+        return position < spanCount
     }
 }

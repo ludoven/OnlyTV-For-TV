@@ -21,7 +21,7 @@ import timber.log.Timber
 
 
 class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPresenter>(),
-    OnItemSelectedListener, OnKeyListener {
+    OnItemSelectedListener, OnKeyListener, BaseRecyclerView.OnListener {
 
     private lateinit var bannerAdapter: BannerAdapter
     private lateinit var homeListAdapter :HomeListAdapter
@@ -41,23 +41,13 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
         binding.bannerRv.adapter = bannerAdapter
         binding.indicator.attachToRecyclerView(binding.bannerRv,pagerSnapHelper)
 
-        binding.bannerRv.setOnFocusListener(object :BaseRecyclerView.OnListener{
-            override fun onFocusGain(child: View?, focued: View?) {
-                super.onFocusGain(child, focued)
-                binding.root.post {
-                    binding.root.smoothScrollTo(0,0)
-                }
-                getAttachActivity()?.hideTopBar(hide = false, animation = true)
-            }
-        })
+        binding.bannerRv.setOnFocusListener(this)
         bannerAdapter.setOnItemClickListener{_,_,_->
             context?.let { InfoActivity.start(it) }
         }
     }
 
-    override fun initData() {
-
-    }
+    override fun initData() {}
 
     private fun initListAdapter(){
         homeListAdapter = HomeListAdapter(mutableListOf("","",""))
@@ -106,6 +96,14 @@ class HomeFragment : BaseFragment<MainActivity, FragmentHomeBinding, DefaultPres
         } else {
             false
         }
+    }
+
+    override fun onFocusGain(child: View?, focued: View?) {
+        super.onFocusGain(child, focued)
+        binding.root.post {
+            binding.root.smoothScrollTo(0,0)
+        }
+        getAttachActivity()?.hideTopBar(hide = false, animation = true)
     }
 
 }
